@@ -1,42 +1,28 @@
-/**
- * For more details on how to configure Wrangler, refer to:
- * https://developers.cloudflare.com/workers/wrangler/configuration/
- */
-{
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "mcp-github-oauth",
-  "main": "src/index.ts",
-  "compatibility_date": "2025-03-10",
-  "compatibility_flags": ["nodejs_compat"],
-  /**
-	 * Note: Use secrets to store sensitive data.
-	 * https://developers.cloudflare.com/workers/configuration/secrets/
-	 * 
-	 * Commands to set secrets:
-	 * npx wrangler secret put GITHUB_CLIENT_ID
-	 * npx wrangler secret put GITHUB_CLIENT_SECRET
-	 * npx wrangler secret put COOKIE_ENCRYPTION_KEY
-	 */
-  "kv_namespaces": [
-    {
-      "binding": "OAUTH_KV",
-      "id": "<Add-KV-ID>"
+  {
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "telegram-bridge",
+    "main": "src/index.ts",
+    "compatibility_date": "2025-03-10",
+    "compatibility_flags": ["nodejs_compat"],
+    "kv_namespaces": [
+      {
+        "binding": "OAUTH_KV",
+        "id": "5d993e99ac6447bf8dcd8ba71a498c1f"
+      }
+    ],
+    "observability": {
+      "enabled": true
+    },
+    "dev": {
+      "port": 8788
+    },
+    "secrets": {
+      "required": [
+        "GITHUB_CLIENT_ID",
+        "GITHUB_CLIENT_SECRET",
+        "COOKIE_ENCRYPTION_KEY",
+        "TELEGRAM_BOT_TOKEN",
+        "TELEGRAM_CHAT_ID"
+      ]
     }
-  ],
-  "ai": {
-    "binding": "AI"
-  },
-  "observability": {
-    "enabled": true
-  },
-  "dev": {
-    "port": 8788
-  },
-  "secrets": {
-    "required": [
-      "GITHUB_CLIENT_ID",
-      "GITHUB_CLIENT_SECRET",
-      "COOKIE_ENCRYPTION_KEY"
-    ]
   }
-}
