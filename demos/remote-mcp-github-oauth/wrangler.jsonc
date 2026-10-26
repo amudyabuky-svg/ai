@@ -15,14 +15,5 @@
     },
     "dev": {
       "port": 8788
-    },
-    "secrets": {
-      "required": [
-        "GITHUB_CLIENT_ID",
-        "GITHUB_CLIENT_SECRET",
-        "COOKIE_ENCRYPTION_KEY",
-        "TELEGRAM_BOT_TOKEN",
-        "TELEGRAM_CHAT_ID"
-      ]
     }
   }
